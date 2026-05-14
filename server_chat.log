@@ -1,0 +1,22 @@
+2026-04-29 11:50:55 - INFO - Generando llaves RSA del Servidor...
+2026-04-29 11:50:56 - INFO - Llaves RSA generadas.
+2026-04-29 11:50:56 - INFO - ------------------------------
+2026-04-29 11:50:56 - INFO - IP detectada automáticamente: 192.168.1.14
+2026-04-29 11:50:57 - INFO - ------------------------------
+2026-04-29 11:50:57 - INFO - Configuración final: 192.168.1.14:8080 | Protocolo: TCP | Máx. Clientes: 5
+2026-04-29 11:50:57 - INFO - ------------------------------
+2026-04-29 11:50:57 - INFO - SERVIDOR TCP ACTIVO
+2026-04-29 11:50:57 - INFO - HOST | PUERTO: 192.168.1.14:8080
+2026-04-29 11:50:57 - INFO - Escriba comandos y espere el log del chat a continuación:
+2026-04-29 11:50:57 - INFO - ------------------------------
+2026-04-29 11:51:25 - INFO - NUEVO REGISTRO: 'compu1'
+2026-04-29 11:51:45 - INFO - NUEVO REGISTRO: 'compu2'
+2026-04-29 11:51:48 - INFO - [PÚBLICO] compu2: hola
+2026-04-29 11:51:56 - INFO - [PÚBLICO] compu2: hola
+2026-04-29 11:51:56 - INFO - [PÚBLICO] compu2: hola
+2026-04-29 11:52:07 - INFO - [PÚBLICO] compu1: hola
+2026-04-29 11:52:09 - INFO - [PÚBLICO] compu1: como tai
+2026-04-29 11:52:19 - INFO - [PÚBLICO] compu2: /msj compu1 hola
+2026-04-29 11:52:27 - INFO - [PRIVADO] compu2 ha enviado un mensaje a compu1.
+2026-04-29 11:52:36 - WARNING - Desconexión abrupta de compu1.
+2026-04-29 11:52:36 - INFO - Cliente 'compu1' ha salido.
