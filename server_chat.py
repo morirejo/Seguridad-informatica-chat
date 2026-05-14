@@ -633,138 +633,53 @@ def manejo_clientes(client_socket):
 
         accion, username, password = paquete
 
-        # ================================================================
-        # VALIDACIONES DE SEGURIDAD
-        # ================================================================
-
         if accion not in ['LOGIN', 'REGISTER']:
-
-            msg_error = rsa.encrypt(
-                "[SERVER]: Error de seguridad. Acción no permitida.\n".encode('utf-8'),
-                client_pubkey
-            )
-
+            msg_error = rsa.encrypt("[SERVER]: Error de seguridad. Acción no permitida.\n".encode('utf-8'), client_pubkey)
             client_socket.sendall(msg_error)
-
             client_socket.close()
-
             return
-
+            
         if not username or len(username) > 8 or " " in username:
-
-            logging.warning(
-                f"Intento de inyección/formato inválido "
-                f"en nombre de usuario desde {client_ip}"
-            )
-
-            msg_error = rsa.encrypt(
-                "[SERVER]: Formato de nombre inválido.\n".encode('utf-8'),
-                client_pubkey
-            )
-
+            msg_error = rsa.encrypt("[SERVER]: Formato de nombre inválido.\n".encode('utf-8'), client_pubkey)
             client_socket.sendall(msg_error)
-
             client_socket.close()
-
             return
-
+            
         if not password or " " in password:
-
-            msg_error = rsa.encrypt(
-                "[SERVER]: Formato de contraseña inválido.\n".encode('utf-8'),
-                client_pubkey
-            )
-
+            msg_error = rsa.encrypt("[SERVER]: Formato de contraseña inválido.\n".encode('utf-8'), client_pubkey)
             client_socket.sendall(msg_error)
-
             client_socket.close()
-
             return
-
-        # ================================================================
-        # AUTENTICACIÓN
-        # ================================================================
 
         usuarios_bd = cargar_usuarios_registrados()
 
-        # ------------------------------------------------
-        # REGISTRO
-        # ------------------------------------------------
         if accion == 'REGISTER':
-
             if username in usuarios_bd:
-
-                msg = rsa.encrypt(
-                    f"[SERVER]: El usuario '{username}' ya existe.\n".encode('utf-8'),
-                    client_pubkey
-                )
-
+                msg = rsa.encrypt(f"[SERVER]: El usuario '{username}' ya existe.\n".encode('utf-8'), client_pubkey)
                 client_socket.sendall(msg)
-
                 client_socket.close()
-
                 return
-
             else:
-
                 registrar_nuevo_usuario(username, password)
+                logging.info(f"AUTH_REGISTER | {username} | {client_ip} | Registro exitoso")
 
-                logging.info(f"NUEVO REGISTRO: '{username}'")
-
-        # ------------------------------------------------
-        # LOGIN
-        # ------------------------------------------------
         elif accion == 'LOGIN':
-
             if username not in usuarios_bd:
-
-                msg = rsa.encrypt(
-                    f"[SERVER]: El usuario '{username}' no existe.\n".encode('utf-8'),
-                    client_pubkey
-                )
-
+                msg = rsa.encrypt(f"[SERVER]: El usuario '{username}' no existe.\n".encode('utf-8'), client_pubkey)
                 client_socket.sendall(msg)
-
                 client_socket.close()
-
                 return
-
+            
             salt_guardado = usuarios_bd[username]['salt']
             hash_guardado = usuarios_bd[username]['hash']
-
-            _, hash_ingresado = hashear_password(
-                password,
-                salt_guardado
-            )
-
+            
+            _, hash_ingresado = hashear_password(password, salt_guardado)
+            
             if hash_guardado != hash_ingresado:
-
-                logging.warning(f"Login fallido para '{username}'")
-
-                msg = rsa.encrypt(
-                    f"[SERVER]: Contraseña incorrecta.\n".encode('utf-8'),
-                    client_pubkey
-                )
-
+                logging.warning(f"AUTH_FAILED | {username} | {client_ip} | Contraseña incorrecta")
+                msg = rsa.encrypt(f"[SERVER]: Contraseña incorrecta.\n".encode('utf-8'), client_pubkey)
                 client_socket.sendall(msg)
-
                 client_socket.close()
-
-                return
-
-            if usuarios_bd[username] != hashear_password(password):
-
-                logging.warning(f"Login fallido para '{username}'")
-
-                msg = rsa.encrypt(
-                    f"[SERVER]: Contraseña incorrecta.\n".encode('utf-8'),
-                    client_pubkey
-                )
-
-                client_socket.sendall(msg)
-
-                client_socket.close()
-
                 return
 
         # ================================================================
