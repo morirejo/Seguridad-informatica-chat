@@ -60,6 +60,6 @@ Click a la captura para entrar al video de youtube
 ---
 
 
-## 👨‍💻 Equipo de Desarrollo
+## Equipo de Desarrollo
 -Ricardo Perez Rubio
 -Neil Parker Llamas
