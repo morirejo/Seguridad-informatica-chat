@@ -1,7 +1,7 @@
 # Seguridad-informatica-chat
 
 ## Funcionalidad principal
-* Arqitectura CLiente-Server: soportando hasta un maximo de 5 usuario simultaneamente
+* Arquitectura Cliente-Server: soportando hasta un maximo de 5 usuario simultaneamente
 * Sala publicas con chat privado: los usuarios pueden enviar mensajes publicamente y enviar mensajes privas a ciertos usuarios
 * Administracion: el servidos cuenta con comandos para gestionar la sala tales como, expulsar usuario, banear IP, banear Usuario, etc)
 * Registro persistente: Sistema de login y registro que persiste para usos futuros
@@ -37,7 +37,7 @@ Caracteristicas de Seguridad
 
 ## Demostracion de uso
 
-[![Demostración del Chat](Captura de pantalla 2026-05-14 003248.png)](https://youtu.be/Y1agrKqobvc)
+[![Demostración del Chat](Captura.png)](https://youtu.be/Y1agrKqobvc)
 
 
 
