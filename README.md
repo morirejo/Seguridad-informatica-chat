@@ -1,16 +1,16 @@
 # Seguridad-informatica-chat
 
 ## Funcionalidad principal
-Arqitectura CLiente-Server: soportando hasta un maximo de 5 usuario simultaneamente
-Sala publicas con chat privado: los usuarios pueden enviar mensajes publicamente y enviar mensajes privas a ciertos usuarios
-Administracion: el servidos cuenta con comandos para gestionar la sala tales como, expulsar usuario, banear IP, banear Usuario, etc)
-Registro persistente: Sistema de login y registro que persiste para usos futuros
+* Arqitectura CLiente-Server: soportando hasta un maximo de 5 usuario simultaneamente
+* Sala publicas con chat privado: los usuarios pueden enviar mensajes publicamente y enviar mensajes privas a ciertos usuarios
+* Administracion: el servidos cuenta con comandos para gestionar la sala tales como, expulsar usuario, banear IP, banear Usuario, etc)
+* Registro persistente: Sistema de login y registro que persiste para usos futuros
 
 Caracteristicas de Seguridad
-Cifrado Asimetrico (RSA) intercambio dinamico de llaves publicas y privadas: toda comunicacion viaja de forma cifrada por la red, los mensajes privados quedan privados en el registro 
-Hashing y salting: las contraseñas no se guardan en texto plano, si no en un hasheo con salting aleatorio de 16 caracteres apra evitar colisiones
-Mitigacion de inyeccion: sanitizacion estricta de entradas, bloqueos de caracteres, espacios nulos y delimitadores para evitar inyeccion
-Auditoria: registro de eventos del servidor, estructurado por eevento, usuario e IP
+* Cifrado Asimetrico (RSA) intercambio dinamico de llaves publicas y privadas: toda comunicacion viaja de forma cifrada por la red, los mensajes privados quedan privados en el registro 
+* Hashing y salting: las contraseñas no se guardan en texto plano, si no en un hasheo con salting aleatorio de 16 caracteres apra evitar colisiones
+* Mitigacion de inyeccion: sanitizacion estricta de entradas, bloqueos de caracteres, espacios nulos y delimitadores para evitar inyeccion
+* Auditoria: registro de eventos del servidor, estructurado por eevento, usuario e IP
 
 
 ## Instalacion y ejecucion
