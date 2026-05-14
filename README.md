@@ -24,12 +24,12 @@ Caracteristicas de Seguridad
 **Pasos para ejecutar:**
 1.  Inicia el servidor ejecutando en una terminal:
     ```
-    python servidor.py
+    python servidor_chat.py
     ```
 2.  El servidor detectará tu IP automáticamente. Confírmala.
 3.  Abre terminales nuevas (ya sea en este dispositivo u otro, con la condicion de que esten en la misma red) por cada cliente que desees conectar y ejecuta:
     ```bash
-    python cliente.py
+    python cliente_chat.py
     ```
 4.  Ingresa la IP del servidor y sigue el menú en pantalla para registrarte o iniciar sesión.
 
