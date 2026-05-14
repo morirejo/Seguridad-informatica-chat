@@ -27,8 +27,8 @@ Auditoria: registro de eventos del servidor, estructurado por eevento, usuario e
     python servidor.py
     ```
 2.  El servidor detectará tu IP automáticamente. Confírmala.
-3.  Abre terminales nuevas por cada cliente que desees conectar y ejecuta:
-    ```
+3.  Abre terminales nuevas (ya sea en este dispositivo u otro, con la condicion de que esten en la misma red) por cada cliente que desees conectar y ejecuta:
+    ```bash
     python cliente.py
     ```
 4.  Ingresa la IP del servidor y sigue el menú en pantalla para registrarte o iniciar sesión.
